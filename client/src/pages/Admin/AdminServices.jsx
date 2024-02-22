@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../store/auth";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-Link;
 
 const AdminServices = () => {
   const [services, setServices] = useState([]);
