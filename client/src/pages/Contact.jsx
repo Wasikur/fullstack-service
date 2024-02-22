@@ -13,7 +13,7 @@ const Contact = () => {
 
   const [userData, setUserData] = useState(true);
 
-  const { user, isLoggedIn } = useAuth();
+  const { user, isLoggedIn, API } = useAuth();
   useEffect(() => {
     if (isLoggedIn && userData && user) {
       setContact({
