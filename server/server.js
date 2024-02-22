@@ -17,20 +17,12 @@ const errorMiddleware = require("./middlewares/error-middleware.js");
 
 // Handling cors
 const corsOptions = {
-  origin: "https://fullstack-service-client.vercel.app",
+  origin: "http://localhost:5173",
   method: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-
-app.get("/", async (req, res) => {
-  try {
-    res.json({ message: "Server is Up" });
-  } catch (error) {
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
 
 // Authentication api route
 app.use("/api/auth", authRoute);
