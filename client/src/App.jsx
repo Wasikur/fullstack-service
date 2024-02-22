@@ -25,15 +25,15 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="https://fullstack-service-client.vercel.app/about" element={<About />} />
+          <Route path="https://fullstack-service-client.vercel.app/contact" element={<Contact />} />
+          <Route path="https://fullstack-service-client.vercel.app/services" element={<Services />} />
+          <Route path="https://fullstack-service-client.vercel.app/register" element={<Register />} />
+          <Route path="https://fullstack-service-client.vercel.app/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="*" element={<Error />} />
 
-          <Route path="/admin" element={<AdminLayout />}>
+          <Route path="https://fullstack-service-client.vercel.app/admin" element={<AdminLayout />}>
             <Route path="users" element={<AdminUsers />} />
             <Route path="users/:id/edit" element={<AdminUsersUpdate />} />
             <Route path="contacts" element={<AdminContacts />} />
