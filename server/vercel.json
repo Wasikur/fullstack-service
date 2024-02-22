@@ -1,7 +1,18 @@
 {
-  "rewrites":
-  [{
-    "source" : "/(.*)",
-    "destination" : "/"
-  }]
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/*",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/api/.*", "dest": "/api/:path*" },
+    { "src": "/(.*)", "dest": "/public/index.html" }
+  ]
 }
