@@ -32,7 +32,7 @@ const Register = () => {
     console.log(user);
 
     try {
-      const response = await fetch(ht`${API}/api/auth/register`, {
+      const response = await fetch(`${API}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user),
