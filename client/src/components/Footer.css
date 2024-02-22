@@ -1,0 +1,29 @@
+:root {
+    --bg-color: #f4f3ff;
+    --btn-color: #646cff;
+    --dark-color: #242424;
+    --helper-color: #99b9ff;
+}
+
+
+
+footer {
+    padding: 3.2rem;
+    text-align: center;
+    background-color: var(--bg-color);
+    margin-top: auto;
+    width: 100%;
+}
+
+/* .container-footer {
+    background-color: var(--bg-color);
+    height: 20vh;
+} */
+
+.footer-text {
+    font-size: 4.8rem;
+    display: flex;
+    justify-content: center;
+    color: var(--dark-color);
+    padding: 10px 0;
+}
