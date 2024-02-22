@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }) => {
 
   // JWT Authentication- to fetch logged in user data
   const userAuthentication = async () => {
+    if(isLoggedIn){
     try {
       setIsLoading(true);
       const response = await fetch(`${API}/api/auth/user`, {
@@ -50,6 +51,7 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.log("Error fetching user data", error);
+    }
     }
   };
 
