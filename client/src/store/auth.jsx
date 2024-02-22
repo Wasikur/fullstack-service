@@ -10,6 +10,8 @@ export const AuthProvider = ({ children }) => {
   const [services, setServices] = useState([]);
   const authorizationToken = `Bearer ${token}`;
 
+  const API = import.meta.env.VITE_APP_URI_API;
+  
   const storeTokenInLs = async (serverToken) => {
     setToken(serverToken);
     await userAuthentication();
@@ -32,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     if(isLoggedIn){
     try {
       setIsLoading(true);
-      const response = await fetch(`https://fullstack-service-server.vercel.app/api/auth/user`, {
+      const response = await fetch(`${API}/api/auth/user`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -56,7 +58,7 @@ export const AuthProvider = ({ children }) => {
   // To fetch the services data from the database
   const getServices = async () => {
     try {
-      const response = await fetch(`https://fullstack-service-server.vercel.app/api/data/service`, {
+      const response = await fetch(`${API}/api/data/service`, {
         method: "GET",
       });
       if (response.ok) {
