@@ -24,6 +24,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+app.get("/", async (req, res) => {
+  try {
+    res.json({ message: "Server is Up" });
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // Authentication api route
 app.use("/api/auth", authRoute);
 
