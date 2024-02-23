@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../store/auth";
 import { toast } from "react-toastify";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const AdminContacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -78,10 +79,14 @@ const AdminContacts = () => {
                     {/* <td>
                       <Link to={`/admin/contacts/${curUser._id}/edit`}>Edit</Link>
                     </td> */}
-                    <td>
-                      <button onClick={() => deleteContact(curUser._id)}>
-                        Delete
-                      </button>
+                    <td><RiDeleteBin6Line
+                        onClick={() => deleteContact(curUser._id)}
+                        style={{
+                          color: "#ff0000",
+                          cursor: "pointer",
+                          fontSize: "30px",
+                        }}
+                      />
                     </td>
                   </tr>
                 );
