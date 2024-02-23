@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../store/auth";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { CiEdit } from "react-icons/ci";
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -78,12 +80,25 @@ const AdminUsers = () => {
                     <td>{curUser.isAdmin ? "Yes" : "No"}</td>
                     <td>{new Date(curUser.createdAt).toLocaleString()}</td>
                     <td>
-                      <Link to={`/admin/users/${curUser._id}/edit`}>Edit</Link>
+                      <Link to={`/admin/users/${curUser._id}/edit`}>
+                        <CiEdit
+                          style={{
+                            color: "green",
+                            cursor: "pointer",
+                            fontSize: "30px",
+                          }}
+                        />
+                      </Link>
                     </td>
                     <td>
-                      <button onClick={() => deleteUser(curUser._id)}>
-                        Delete
-                      </button>
+                      <RiDeleteBin6Line
+                        onClick={() => deleteUser(curUser._id)}
+                        style={{
+                          color: "#ff0000",
+                          cursor: "pointer",
+                          fontSize: "30px",
+                        }}
+                      />
                     </td>
                   </tr>
                 );
