@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../store/auth";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { CiEdit } from "react-icons/ci";
 
 const AdminServices = () => {
   const [services, setServices] = useState([]);
@@ -84,16 +86,27 @@ const AdminServices = () => {
                     <td>{curService.provider}</td>
                     <td>
                       <Link to={`/admin/services/${curService._id}/edit`}>
-                        Edit
+                        <CiEdit
+                          style={{
+                            color: "green",
+                            cursor: "pointer",
+                            fontSize: "30px",
+                          }}
+                        />
                       </Link>
                     </td>
                     {/* <td>
                       <Link to={`/admin/contacts/${curUser._id}/edit`}>Edit</Link>
                     </td> */}
                     <td>
-                      <button onClick={() => deleteServices(curService._id)}>
-                        Delete
-                      </button>
+                     <RiDeleteBin6Line
+                        onClick={() => deleteServices(curService._id)}
+                        style={{
+                          color: "#ff0000",
+                          cursor: "pointer",
+                          fontSize: "30px",
+                        }}
+                      />
                     </td>
                   </tr>
                 );
