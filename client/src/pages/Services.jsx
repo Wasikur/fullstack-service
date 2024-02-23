@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import "./Services.css";
 
 const Services = () => {
   const { services } = useAuth();
