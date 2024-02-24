@@ -20,7 +20,6 @@ const AdminLayout = () => {
     <>
       <header>
         <div className="container">
-          <nav>
             <ul>
               <li>
                 <NavLink to="/admin/users">
@@ -41,7 +40,6 @@ const AdminLayout = () => {
                 <NavLink to="/admin">{/* <FaHome /> Home */}</NavLink>
               </li>
             </ul>
-          </nav>
         </div>
       </header>
       <Outlet />
