@@ -90,7 +90,7 @@ button {
   padding: 1rem 2.2rem;
   font-size: 1.7rem;
   font-weight: 500;
-  background-color: var(--bg-color);
+  background-color: var(--btn-color);
   border-radius: 0.8rem;
   border: 0.1rem solid transparent;
   cursor: pointer;
@@ -98,10 +98,9 @@ button {
   transition: border-color 0.3s;
   margin-right: 3.2rem;
 
-    & a {
+  & a {
     color: var(--bg-color);
   }
-}
 }
 
 .secondary-btn {
@@ -116,7 +115,7 @@ button:hover {
 
 a:hover,
 a.active {
-  color: white
+  color: var(--bg-color)
 }
 
 /* pseudo elements */
