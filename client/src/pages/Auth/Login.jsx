@@ -5,7 +5,7 @@ import { useAuth } from "../../store/auth";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const [user, setUser] = useState({
+  const [displayUser, setDisplayUser] = useState({
     email: "",
     password: "",
   });
@@ -15,14 +15,25 @@ const Login = () => {
 
   // Handling the input values
   const handleInput = (e) => {
-    // console.log(e);
     let name = e.target.name;
     let value = e.target.value;
+    if (name === "email") {
+      setDisplayUser({
+        ...displayUser,
+        [name]: value,
+      });
+      value = value.toLowerCase();
+    }
     setUser({
       ...user,
       [name]: value,
     });
   };
+
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
   // Handling form submission
   const handleSubmit = async (e) => {
@@ -85,7 +96,7 @@ const Login = () => {
                       name="email"
                       placeholder="email"
                       autoComplete="off"
-                      value={user.email}
+                      value={displayUser.email}
                       onChange={handleInput}
                       required
                     />

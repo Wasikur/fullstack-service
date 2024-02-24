@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../store/auth";
 import { toast } from "react-toastify";
@@ -12,14 +11,27 @@ const Register = () => {
     password: "",
   });
 
+  const [displayUser, setDisplayUser] = useState({
+    username: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
+
   const navigate = useNavigate();
   const { storeTokenInLs, API } = useAuth();
 
   // Handling the input values
   const handleInput = (e) => {
-    // console.log(e);
     let name = e.target.name;
     let value = e.target.value;
+    if (name === "email") {
+      setDisplayUser({
+        ...displayUser,
+        [name]: value,
+      });
+      value = value.toLowerCase();
+    }
     setUser({
       ...user,
       [name]: value,
@@ -106,7 +118,7 @@ const Register = () => {
                       name="email"
                       placeholder="email"
                       autoComplete="off"
-                      value={user.email}
+                      value={displayUser.email}
                       onChange={handleInput}
                       required
                     />
