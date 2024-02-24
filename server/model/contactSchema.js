@@ -4,6 +4,10 @@ const contactSchema = new Schema({
   username: { type: String, required: true },
   email: { type: String, required: true },
   message: { type: String, required: true },
+  sentOn: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 // create a model or collection from the schema

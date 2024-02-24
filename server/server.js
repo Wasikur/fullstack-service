@@ -17,7 +17,7 @@ const errorMiddleware = require("./middlewares/error-middleware.js");
 
 // Handling cors
 const corsOptions = {
-  origin: "https://fullstack-service-client.vercel.app",
+  origin: "http://localhost:5173",
   method: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
