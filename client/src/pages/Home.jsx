@@ -19,12 +19,13 @@ const Home = () => {
                 tailored to meet your unique needs.
               </p>
               <div className="btn btn-group">
-                <a href="/contact">
-                  <button className="btn">Connect Now</button>
-                </a>
-                <a href="/services">
-                  <button className="btn secondary-btn">Learn More</button>
-                </a>
+                <button className="btn">
+                  <a href="/contact">Connect Now</a>
+                </button>
+
+                <button className="btn secondary-btn">
+                  <a href="/services">Learn More</a>
+                </button>
               </div>
             </div>
             <div className="hero-image">
@@ -52,12 +53,13 @@ const Home = () => {
               the digital age.
             </p>
             <div className="btn btn-group">
-              <a href="/contact">
-                <button className="btn">Connect Now</button>
-              </a>
-              <a href="/services">
-                <button className="btn secondary-btn">Learn More</button>
-              </a>
+              <button className="btn">
+                <a href="/contact">Connect Now</a>
+              </button>
+
+              <button className="btn secondary-btn">
+                <a href="/services">Learn More</a>
+              </button>
             </div>
           </div>
         </div>
