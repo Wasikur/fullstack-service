@@ -97,6 +97,11 @@ button {
   letter-spacing: 0.1rem;
   transition: border-color 0.3s;
   margin-right: 3.2rem;
+
+    & a {
+    color: var(--bg-color);
+  }
+}
 }
 
 .secondary-btn {
