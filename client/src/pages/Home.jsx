@@ -1,4 +1,5 @@
 import React from "react";
+import "./Home.css";
 import Analytics from "../components/Analytics";
 
 const Home = () => {

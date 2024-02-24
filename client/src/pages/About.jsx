@@ -1,4 +1,5 @@
 import React from "react";
+import "./About.css";
 import Analytics from "../components/Analytics";
 import { useAuth } from "../store/auth";
 

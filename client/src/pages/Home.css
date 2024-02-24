@@ -1,0 +1,102 @@
+/* Common styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid {
+    display: grid;
+    gap: 20px;
+}
+
+.grid-two-cols {
+    grid-template-columns: 1fr 1fr;
+}
+
+.section-hero {
+    padding: 80px 0;
+}
+
+/* Hero content styles */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #666;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+.hero-content .btn-group {
+    margin-top: 20px;
+}
+
+/* Hero image styles */
+.hero-image img {
+    max-width: 100%;
+}
+
+/* Button styles */
+.btn {
+    /* background-color: #007bff; */
+    /* color: #fff; */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .grid-two-cols {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-hero {
+        padding: 60px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
