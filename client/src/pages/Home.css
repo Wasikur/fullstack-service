@@ -1,13 +1,13 @@
 /* Common styles */
 .container {
-    max-width: 1200px;
+    max-width: 140rem;
+    padding: 4rem 2.4rem;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .grid {
     display: grid;
-    gap: 20px;
+    gap: 6.4rem;
 }
 
 .grid-two-cols {
@@ -27,7 +27,7 @@
 
 .hero-content p {
     font-size: 18px;
-    color: #666;
+    /* color: #666; */
 }
 
 .hero-content h1 {
@@ -72,7 +72,7 @@
     }
 
     .btn-group {
-        display: flex;
+        /* display: flex; */
         justify-content: center;
     }
 

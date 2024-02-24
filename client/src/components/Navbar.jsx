@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../store/auth";
@@ -7,22 +7,41 @@ import ProfilePicture from "./ProfilePicture";
 const Navbar = () => {
   const { isLoggedIn, user } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navbarRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleClickOutside = (event) => {
+    if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const handleToggleClick = (event) => {
+    event.stopPropagation();
+    toggleMenu();
+  };
+
   return (
     <div>
       <header>
-        <div className="container">
+        <div className="container" ref={navbarRef}>
           <div className="logo-brand">
             <NavLink to="/">
-              <img src="./assets/logo.png" alt="Logo" height="80rem" />
+              <img src="./assets/logo.png" alt="Logo" className="logo" />
             </NavLink>
           </div>
           {/* Toggle button for phones */}
-          <div className="toggle-button" onClick={toggleMenu}>
+          <div className="toggle-button" onClick={handleToggleClick}>
             <div className={isMenuOpen ? "open" : ""}></div>
             <div className={isMenuOpen ? "open" : ""}></div>
             <div className={isMenuOpen ? "open" : ""}></div>

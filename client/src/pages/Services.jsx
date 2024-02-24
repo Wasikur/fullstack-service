@@ -26,7 +26,7 @@ const Services = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-      <div className="container grid grid-three-cols">
+      <div className="container grid grid-three-cols-service">
         {filteredServices.map((curElem, index) => {
           const { price, description, provider, service } = curElem;
           return (

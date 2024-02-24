@@ -74,8 +74,8 @@ const Contact = () => {
   return (
     <>
       <section className="section-contact">
-        <div className="contact-content container">
-          <h1 className="main-heading mb-3">Contact Us</h1>
+        <div className="container">
+          <h1 className="main-heading">Contact Us</h1>
         </div>
 
         {/* contact page main */}
@@ -143,17 +143,17 @@ const Contact = () => {
             </form>
           </section>
         </div>
-        <section className="mb-3">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d405.76983975468227!2d94.89328392997781!3d27.470501936577676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1707689377000!5m2!1sen!2sin"
-            width={"100%"}
-            height={"450"}
-            // style={(border = 0)}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </section>
+      </section>
+      <section className="mb-3">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d405.76983975468227!2d94.89328392997781!3d27.470501936577676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1707689377000!5m2!1sen!2sin"
+          width={"100%"}
+          height={"450"}
+          // style={(border = 0)}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </section>
     </>
   );

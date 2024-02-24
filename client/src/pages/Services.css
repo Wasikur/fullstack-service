@@ -1,13 +1,11 @@
 /* CSS for Services component */
 .section-services {
     padding: 50px 0;
-}
 
-.main-heading {
-    /* text-align: center; */
-    margin-bottom: 30px;
-    /* font-size: 2.5rem; */
-    /* color: #333; */
+    & h2 {
+        font-size: 3.5rem;
+        font-weight: 1000;
+    }
 }
 
 .container {
@@ -17,21 +15,31 @@
     padding: 0 20px;
 }
 
-.grid {
-    display: grid;
-    gap: 20px;
-}
-
-.grid-three-cols {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.grid-three-cols-service {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .card {
     /* background-color: #fff; */
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid rgb(222, 155, 155);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+}
+
+.card {
+    /* padding: 1rem 2rem; */
+
+    & .card-details {
+        h2 {
+            padding: 2rem 0;
+        }
+    }
+
+    .card-img {
+        text-align: center;
+    }
 }
 
 .card:hover {
@@ -39,37 +47,19 @@
 }
 
 .card-img img {
-    width: 100%;
+    width: 80%;
     height: auto;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
 .card-details {
-    padding: 20px;
-}
-
-.provider {
-    font-weight: bold;
-    color: #333;
-}
-
-.price {
-    color: #666;
-}
-
-.service-title {
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.description {
-    color: #666;
+    padding: 2rem;
 }
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
-    .grid-three-cols {
+    .grid-three-cols-service {
         grid-template-columns: repeat(1, 1fr);
     }
 
@@ -79,7 +69,7 @@
 }
 
 @media screen and (max-width: 576px) {
-    .grid-three-cols {
+    .grid-three-cols-service {
         grid-template-columns: repeat(1, 1fr);
     }
 
