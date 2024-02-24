@@ -4,9 +4,14 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { CiEdit } from "react-icons/ci";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { InputText } from "primereact/inputtext";
+import "./AdminTable.css";
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
+  const [globalFilter, setGlobalFilter] = useState("");
   const { authorizationToken, API } = useAuth();
 
   const getAllUsersData = async () => {
@@ -56,55 +61,55 @@ const AdminUsers = () => {
         <div className="container">
           <h1>Admin Users Data</h1>
         </div>
+        <div className="container p-input-icon-left">
+          <i className="pi pi-search" />
+          <InputText
+            type="search"
+            placeholder="Search"
+            onChange={(e) => setGlobalFilter(e.target.value)}
+          />
+        </div>
 
         <div className="container admin-users">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>isAdmin</th>
-                <th>Created At</th> {/* Added Created At column header */}
-                <th>Update</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((curUser, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{curUser.username}</td>
-                    <td>{curUser.email}</td>
-                    <td>{curUser.phone}</td>
-                    <td>{curUser.isAdmin ? "Yes" : "No"}</td>
-                    <td>{new Date(curUser.createdAt).toLocaleString()}</td>
-                    <td>
-                      <Link to={`/admin/users/${curUser._id}/edit`}>
-                        <CiEdit
-                          style={{
-                            color: "green",
-                            cursor: "pointer",
-                            fontSize: "30px",
-                          }}
-                        />
-                      </Link>
-                    </td>
-                    <td>
-                      <RiDeleteBin6Line
-                        onClick={() => deleteUser(curUser._id)}
-                        style={{
-                          color: "#ff0000",
-                          cursor: "pointer",
-                          fontSize: "30px",
-                        }}
-                      />
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <DataTable
+            value={users}
+            paginator
+            rows={10}
+            rowsPerPageOptions={[5, 10, 20]}
+            globalFilter={globalFilter}
+            emptyMessage="No records found"
+          >
+            <Column field="username" header="Name" sortable></Column>
+            <Column field="email" header="Email" sortable></Column>
+            <Column field="phone" header="Phone" sortable></Column>
+            <Column field="isAdmin" header="isAdmin" sortable></Column>
+            <Column field="createdAt" header="Created At" sortable></Column>
+            <Column
+              header="Action"
+              body={(rowData) => (
+                <>
+                  <Link to={`/admin/users/${rowData._id}/edit`}>
+                    <CiEdit
+                      style={{
+                        color: "green",
+                        cursor: "pointer",
+                        fontSize: "25px",
+                        marginRight: "20px",
+                      }}
+                    />
+                  </Link>
+                  <RiDeleteBin6Line
+                    onClick={() => deleteUser(rowData._id)}
+                    style={{
+                      color: "#ff0000",
+                      cursor: "pointer",
+                      fontSize: "20px",
+                    }}
+                  />
+                </>
+              )}
+            ></Column>
+          </DataTable>
         </div>
       </section>
     </>

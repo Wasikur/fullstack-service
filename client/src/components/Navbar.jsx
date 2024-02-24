@@ -1,42 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import ProfilePicture from "./ProfilePicture";
 
 const Navbar = () => {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, user } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div>
       <header>
         <div className="container">
           <div className="logo-brand">
-            <NavLink to="/">Wasikur</NavLink>
+            <NavLink to="/">
+              <img src="./assets/logo.png" alt="Logo" height="80rem" />
+            </NavLink>
           </div>
-          <nav>
+          {/* Toggle button for phones */}
+          <div className="toggle-button" onClick={toggleMenu}>
+            <div className={isMenuOpen ? "open" : ""}></div>
+            <div className={isMenuOpen ? "open" : ""}></div>
+            <div className={isMenuOpen ? "open" : ""}></div>
+          </div>
+          <nav className={isMenuOpen ? "open" : ""}>
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" onClick={toggleMenu}>
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/about">About</NavLink>
+                <NavLink to="/about" onClick={toggleMenu}>
+                  About
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/services">Services</NavLink>
+                <NavLink to="/services" onClick={toggleMenu}>
+                  Services
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/contact">Contact</NavLink>
+                <NavLink to="/contact" onClick={toggleMenu}>
+                  Contact
+                </NavLink>
               </li>
-
-              {/* If logged in the logout will show otherwise login and register will show */}
-
+              {user.isAdmin && (
+                <li>
+                  <NavLink to="/admin" onClick={toggleMenu}>
+                    Admin Panel
+                  </NavLink>
+                </li>
+              )}
               {isLoggedIn ? (
                 <>
                   <li>
-                    <NavLink to="/logout"> Logout </NavLink>
+                    <NavLink to="/logout" onClick={toggleMenu}>
+                      Logout
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/">
+                    <NavLink to="/userupdate" onClick={toggleMenu}>
                       <ProfilePicture />
                     </NavLink>
                   </li>
@@ -44,10 +72,14 @@ const Navbar = () => {
               ) : (
                 <>
                   <li>
-                    <NavLink to="/register">Register</NavLink>
+                    <NavLink to="/register" onClick={toggleMenu}>
+                      Register
+                    </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/login" onClick={toggleMenu}>
+                      Login
+                    </NavLink>
                   </li>
                 </>
               )}

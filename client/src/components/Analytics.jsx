@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Analytics.css";
 const Analytics = () => {
   return (
     <section className="section-analytics">

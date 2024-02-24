@@ -1,0 +1,59 @@
+.section-analytics {
+    margin: 9.6rem 0;
+
+    & .container {
+        background-color: var(--bg-color);
+        border-radius: 1rem;
+    }
+
+    & .grid {
+        color: var(--dark-color);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+
+        & .div1 {
+            text-align: center;
+            border-right: 0.2rem solid var(--dark-color);
+            padding: 2rem 0;
+        }
+
+        & .div1:last-child {
+            border-right: none;
+        }
+
+        & h2 {
+            font-size: 4.8rem;
+            margin-bottom: 1rem;
+        }
+
+        & p {
+            text-transform: capitalize;
+            font-size: 1.6rem;
+        }
+    }
+
+    /* Media Queries */
+
+    /* Tablets */
+    @media (max-width: 768px) {
+        & .grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* Phones */
+    @media (max-width: 576px) {
+        margin: 4.8rem 0;
+
+        & .grid {
+            grid-template-columns: repeat(1, 1fr);
+
+            & .div1 {
+                border-right: none;
+                padding: 2rem 0;
+            }
+        }
+    }
+}

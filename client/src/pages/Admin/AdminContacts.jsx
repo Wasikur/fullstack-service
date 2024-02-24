@@ -2,9 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../../store/auth";
 import { toast } from "react-toastify";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { InputText } from "primereact/inputtext";
+import "./AdminTable.css";
 
 const AdminContacts = () => {
   const [contacts, setContacts] = useState([]);
+  const [globalFilter, setGlobalFilter] = useState("");
   const { authorizationToken, API } = useAuth();
 
   const getAllContactsData = async () => {
@@ -19,16 +24,11 @@ const AdminContacts = () => {
       console.log(`Contacts : ${data}`);
       setContacts(data.contacts);
     } catch (error) {
-      console.log("Admin Users details error:", error);
+      console.log("Admin Contacts details error:", error);
     }
   };
 
-  // Function to edit user using id
-  // const editUser = async (id) => {
-  //   console.log(id);
-  // };
-
-  // Function to delete user using id
+  // Function to delete contact using id
   const deleteContact = async (id) => {
     try {
       const response = await fetch(`${API}/api/admin/contacts/delete/${id}`, {
@@ -59,40 +59,42 @@ const AdminContacts = () => {
         <div className="container">
           <h1>Admin Contacts Data</h1>
         </div>
+        <div className="container p-input-icon-left">
+          <i className="pi pi-search" />
+          <InputText
+            type="search"
+            placeholder="Search"
+            value={globalFilter}
+            onChange={(e) => setGlobalFilter(e.target.value)}
+          />
+        </div>
         <div className="container admin-users">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Message</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {contacts.map((curUser, index) => {
-                return (
-                  <tr key={index}>
-                    <td>{curUser.username}</td>
-                    <td>{curUser.email}</td>
-                    <td>{curUser.message}</td>
-                    {/* <td>
-                      <Link to={`/admin/contacts/${curUser._id}/edit`}>Edit</Link>
-                    </td> */}
-                    <td><RiDeleteBin6Line
-                        onClick={() => deleteContact(curUser._id)}
-                        style={{
-                          color: "#ff0000",
-                          cursor: "pointer",
-                          fontSize: "30px",
-                        }}
-                      />
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <DataTable
+            value={contacts}
+            globalFilter={globalFilter}
+            paginator
+            rows={10}
+            rowsPerPageOptions={[5, 10, 20]}
+            emptyMessage="No records found"
+          >
+            <Column field="username" header="Name" sortable></Column>
+            <Column field="email" header="Email" sortable></Column>
+            <Column field="message" header="Message" sortable></Column>
+            <Column field="sentOn" header="Received On" sortable></Column>
+            <Column
+              header="Action"
+              body={(rowData) => (
+                <RiDeleteBin6Line
+                  onClick={() => deleteContact(rowData._id)}
+                  style={{
+                    color: "#ff0000",
+                    cursor: "pointer",
+                    fontSize: "20px",
+                  }}
+                />
+              )}
+            ></Column>
+          </DataTable>
         </div>
       </section>
     </>

@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   const authorizationToken = `Bearer ${token}`;
 
   const API = import.meta.env.VITE_APP_URI_API;
-  
+
   const storeTokenInLs = async (serverToken) => {
     setToken(serverToken);
     await userAuthentication();
@@ -31,7 +31,6 @@ export const AuthProvider = ({ children }) => {
 
   // JWT Authentication- to fetch logged in user data
   const userAuthentication = async () => {
-    if(isLoggedIn){
     try {
       setIsLoading(true);
       const response = await fetch(`${API}/api/auth/user`, {
@@ -51,7 +50,6 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.log("Error fetching user data", error);
-    }
     }
   };
 

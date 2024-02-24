@@ -1,12 +1,14 @@
 import React from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import Register from "./pages/Admin/Register";
-import Login from "./pages/Admin/Login";
-import Logout from "./pages/Admin/Logout";
+import Register from "./pages/Auth/Register";
+import UserProfileUpdate from "./pages/Auth/UserProfileUpdate";
+import Login from "./pages/Auth/Login";
+import Logout from "./pages/Auth/Logout";
 import Error from "./pages/Error";
 import AdminLayout from "./components/layouts/AdminLayout";
 import AdminUsers from "./pages/Admin/AdminUsers";
@@ -31,6 +33,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/userupdate" element={<UserProfileUpdate />} />
           <Route path="*" element={<Error />} />
 
           <Route path="/admin" element={<AdminLayout />}>
