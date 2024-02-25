@@ -18,15 +18,18 @@ const Home = () => {
                 we specialize in providing innovative IT services and solutions
                 tailored to meet your unique needs.
               </p>
-              <div className="btn btn-group">
-                <button className="btn">
-                  <a href="/contact">Connect Now</a>
-                </button>
-
-                <button className="btn secondary-btn">
-                  <a href="/services">Learn More</a>
-                </button>
-              </div>
+              <span className="btn brn-grp">
+                <span class="button-container">
+                  <NavLink to="/contact">
+                    <button className="btn">Connect Now</button>
+                  </NavLink>
+                </span>
+                <span class="button-container">
+                  <NavLink to="/services">
+                    <button className="btn secondary-btn">Learn More</button>
+                  </NavLink>
+                </span>
+              </span>
             </div>
             <div className="hero-image">
               <img src="./assets/home1.svg" alt="welcome" width={500} />
@@ -52,15 +55,18 @@ const Home = () => {
               let's discuss how WebDev can help your business thrive in
               the digital age.
             </p>
-            <div className="btn btn-group">
-              <button className="btn">
-                <a href="/contact">Connect Now</a>
-              </button>
-
-              <button className="btn secondary-btn">
-                <a href="/services">Learn More</a>
-              </button>
-            </div>
+           <span className="btn brn-grp">
+                <span class="button-container">
+                  <NavLink to="/contact">
+                    <button className="btn">Connect Now</button>
+                  </NavLink>
+                </span>
+                <span class="button-container">
+                  <NavLink to="/services">
+                    <button className="btn secondary-btn">Learn More</button>
+                  </NavLink>
+                </span>
+              </span>
           </div>
         </div>
       </section>
