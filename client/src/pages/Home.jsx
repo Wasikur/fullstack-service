@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Analytics from "../components/Analytics";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
