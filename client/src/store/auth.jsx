@@ -69,10 +69,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
+   useEffect(() => {
     getServices();
-    userAuthentication();
-  }, []);
+    if (isLoggedIn) {
+      userAuthentication(); // If not logged in Authenticaton will not be called
+    } else {
+      setIsLoading(false); // Setting loading to false when user is not logged in
+    }
+  }, [isLoggedIn]);
 
   return (
     <AuthContext.Provider
