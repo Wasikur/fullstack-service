@@ -41,10 +41,19 @@ const Navbar = () => {
             </NavLink>
           </div>
           {/* Toggle button for phones */}
-          <div className="toggle-button" onClick={handleToggleClick}>
-            <div className={isMenuOpen ? "open" : ""}></div>
-            <div className={isMenuOpen ? "open" : ""}></div>
-            <div className={isMenuOpen ? "open" : ""}></div>
+              <div className="toggle-button" onClick={handleToggleClick}>
+            <div
+              className={isMenuOpen ? "open" : ""}
+              style={{ background: "#646cff" }}
+            ></div>
+            <div
+              className={isMenuOpen ? "open" : ""}
+              style={{ background: "#646cff" }}
+            ></div>
+            <div
+              className={isMenuOpen ? "open" : ""}
+              style={{ background: "#646cff" }}
+            ></div>
           </div>
           <nav className={isMenuOpen ? "open" : ""}>
             <ul>
