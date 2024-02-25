@@ -359,7 +359,6 @@ a.active {
 @media (width <=998px) {
   .grid-two-cols {
     grid-template-columns: 1fr;
-     box-shadow: inset 0 0 0 0.2rem var(--btn-color);
   }
 
   /* .section-registration {
