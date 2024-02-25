@@ -361,6 +361,11 @@ a.active {
     grid-template-columns: 1fr;
   }
 
+    .button-container {
+    display: flex;
+    justify-content: center;
+  }
+
   /* .section-registration {
     & .container {
       & .reg-img img {
