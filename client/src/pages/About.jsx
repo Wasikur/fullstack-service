@@ -2,6 +2,7 @@ import React from "react";
 import "./About.css";
 import Analytics from "../components/Analytics";
 import { useAuth } from "../store/auth";
+import { NavLink } from "react-router-dom";
 
 const About = () => {
   const { user } = useAuth();
@@ -40,15 +41,18 @@ const About = () => {
                 committed to ensuring your IT environment is reliable and
                 available 24/7
               </p>
-              <div className="btn btn-group">
-                <button className="btn">
-                  <a href="/contact">Connect Now</a>
-                </button>
-
-                <button className="btn secondary-btn">
-                  <a href="/services">Learn More</a>
-                </button>
-              </div>
+              <span className="btn brn-grp">
+                <span class="button-container">
+                  <NavLink to="/contact">
+                    <button className="btn">Connect Now</button>
+                  </NavLink>
+                </span>
+                <span class="button-container">
+                  <NavLink to="/services">
+                    <button className="btn secondary-btn">Learn More</button>
+                  </NavLink>
+                </span>
+              </span>
             </div>
             <div className="hero-image">
               <img src="./assets/aboutus.svg" alt="welcome" width={500} />
