@@ -20,12 +20,12 @@ const Home = () => {
                 tailored to meet your unique needs.
               </p>
               <span className="btn brn-grp">
-                <span class="button-container">
+                <span className="button-container">
                   <NavLink to="/contact">
                     <button className="btn">Connect Now</button>
                   </NavLink>
                 </span>
-                <span class="button-container">
+                <span className="button-container">
                   <NavLink to="/services">
                     <button className="btn secondary-btn">Learn More</button>
                   </NavLink>
@@ -57,12 +57,12 @@ const Home = () => {
               the digital age.
             </p>
            <span className="btn brn-grp">
-                <span class="button-container">
+                <span className="button-container">
                   <NavLink to="/contact">
                     <button className="btn">Connect Now</button>
                   </NavLink>
                 </span>
-                <span class="button-container">
+                <span className="button-container">
                   <NavLink to="/services">
                     <button className="btn secondary-btn">Learn More</button>
                   </NavLink>
