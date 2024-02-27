@@ -7,12 +7,11 @@ const UserProfileUpdate = () => {
     username: "",
     email: "",
     phone: "",
-    password: "",
   });
 
   const [userDataFetched, setUserDataFetched] = useState(false);
 
-  const { user, isLoggedIn, API } = useAuth();
+  const { user, isLoggedIn, API, authorizationToken } = useAuth();
 
   useEffect(() => {
     if (isLoggedIn && !userDataFetched && user) {
@@ -20,7 +19,6 @@ const UserProfileUpdate = () => {
         username: user.username,
         email: user.email,
         phone: user.phone,
-        password: "", // Initially set password field as empty
       });
       setUserDataFetched(true);
     }
@@ -41,9 +39,12 @@ const UserProfileUpdate = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`${API}/api/update`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch(`${API}/api/auth/update`, {
+             method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: authorizationToken,
+        },
         body: JSON.stringify(data),
       });
 
