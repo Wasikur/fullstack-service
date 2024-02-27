@@ -93,7 +93,7 @@ const user = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     // Extract updated user data from the request body
-    const { username, email, phone, password } = req.body;
+    const { username, email, phone } = req.body;
 
     // Find the user by userId
     let user = await User.findById(req.user._id);
@@ -107,13 +107,6 @@ const updateUser = async (req, res) => {
     user.username = username || user.username; // Update username if provided, otherwise keep the existing value
     user.email = email || user.email; // Update email if provided, otherwise keep the existing value
     user.phone = phone || user.phone; // Update phone if provided, otherwise keep the existing value
-
-    // If a new password is provided, hash it and update the password field
-    if (password) {
-      const saltRound = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, saltRound);
-      user.password = hashedPassword;
-    }
 
     // Save the updated user data
     await user.save();
