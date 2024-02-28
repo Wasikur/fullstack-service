@@ -95,7 +95,7 @@ const AdminServices = () => {
                       style={{
                         color: "green",
                         cursor: "pointer",
-                        fontSize: "25px",
+                        fontSize: "20px",
                         marginRight: "20px",
                       }}
                     />
