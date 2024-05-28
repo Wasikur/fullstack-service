@@ -1,0 +1,44 @@
+Project Description: Business Service Website
+Project Title: Business Service Website
+
+Tech Stack: MERN (MongoDB, Express.js, React.js, Node.js)
+
+Project Overview:
+The Business Service Website is built using the MERN stack, designed to showcase the services offered by a business. It features user registration, login, and logout functionalities, along with an admin panel for managing content and user data.
+
+Key Features:
+
+User Authentication:
+
+Registration: New users can sign up with their details.
+Login/Logout: Users can securely log in and out of their accounts.
+User Profile Management:
+
+Users can update their profile information, such as name, email, and password.
+Service Showcase:
+
+A detailed section presenting all the services offered by the business, with descriptions and images.
+Admin Panel:
+
+Accessible only to admins for managing services, users, and site content.
+Admins can add, edit, or delete services and manage user roles.
+Note: To test the admin panel, log in using the email admin@gmail.com and password password. The admin panel option will only be visible in the navigation bar if the user is an admin.
+Contact Form:
+
+A form for visitors to send inquiries directly from the website.
+Integrated email service to forward inquiries to the business email.
+Technical Implementation:
+
+Front-End:
+
+React.js: For the user interface.
+React Router: For navigation.
+CSS/SCSS: For styling.
+Back-End:
+
+Node.js & Express.js: For server-side logic.
+MongoDB: For database management.
+Deployment:
+
+Hosted on platforms like Heroku or Vercel.
+This website effectively demonstrates the use of the MERN stack for building dynamic, user-centric web applications with robust admin capabilities and user profile management.
